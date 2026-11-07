@@ -3,109 +3,101 @@
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
 ![Versão](https://img.shields.io/badge/version-0.1.0-blue)
 ![Licença](https://img.shields.io/badge/license-MIT-green)
-![Tecnologia](https://img.shields.io/badge/stack-HTML%20%7C%20CSS%20%7C%20JavaScript-orange)
+![Stack](https://img.shields.io/badge/stack-HTML%20%7C%20CSS%20%7C%20JavaScript-orange)
 
-**TaskFlow** é uma aplicação web leve para organizar tarefas pessoais. O usuário pode cadastrar atividades, definir prioridade, acompanhar seu status e remover tarefas concluídas ou desnecessárias. Os dados são persistidos no navegador por meio de `localStorage`.
+O **TaskFlow** é uma aplicação web para organizar tarefas pessoais. Permite registrar atividades, definir prioridade, acompanhar o status e visualizar o progresso. Os dados são persistidos no navegador por meio do LocalStorage.
 
-> Projeto acadêmico desenvolvido para praticar especificação de requisitos, documentação, Git Flow, Conventional Commits, Issues e versionamento semântico.
-
-## Estado do projeto
-
-| Recurso | Situação |
-|---|---|
-| Estrutura inicial e documentação | Concluído |
-| Cadastro e listagem de tarefas | Concluído |
-| Conclusão e exclusão de tarefas | Concluído |
-| Filtros por status | Concluído |
-| Persistência com LocalStorage | Concluído |
-| Edição de tarefas | Planejado |
-| Testes automatizados e CI | Planejado |
+Projeto acadêmico para praticar especificação, rastreabilidade, Git Flow, Conventional Commits, Issues e versionamento semântico.
 
 ## Funcionalidades
 
-- [x] Criar tarefa com título, descrição e prioridade.
-- [x] Listar tarefas cadastradas.
-- [x] Marcar tarefa como concluída ou reabri-la.
-- [x] Excluir tarefa.
-- [x] Filtrar tarefas por todas, pendentes e concluídas.
-- [x] Salvar dados localmente no navegador.
-- [ ] Editar tarefa existente.
-- [ ] Adicionar data de vencimento e ordenação.
-- [ ] Implementar testes automatizados e pipeline CI.
+| Funcionalidade | Situação |
+|---|---|
+| Cadastro com título e descrição opcional | Implementada |
+| Prioridade baixa, média e alta | Implementada |
+| Listagem de tarefas | Implementada |
+| Concluir e reabrir tarefa | Implementada |
+| Excluir tarefa | Implementada |
+| Filtros Todas, Pendentes e Concluídas | Implementada |
+| Persistência no LocalStorage | Implementada |
+| Indicadores de total, pendentes e concluídas | Implementada |
+| Edição de tarefas e vencimento | Planejada |
+| Testes automatizados e CI | Planejados |
 
 ## Tecnologias
 
-- HTML5 e CSS3 para estrutura e apresentação.
-- JavaScript ES6+ para regras e interações.
-- Web Storage API (`localStorage`) para persistência local.
-- Git e GitHub para versionamento e gestão do trabalho.
+- **HTML5:** estrutura semântica.
+- **CSS3:** apresentação responsiva.
+- **JavaScript ES6+:** regras e interações.
+- **LocalStorage:** persistência local no navegador.
+- **Git e GitHub:** versionamento e gestão do trabalho.
 
-Não há backend ou banco de dados remoto nesta primeira versão. Os dados ficam no navegador e não são sincronizados entre dispositivos.
+Não existe backend nem banco de dados remoto nesta versão. Os dados permanecem no navegador utilizado e não são sincronizados entre dispositivos.
 
-## Como executar
+## Como executar localmente
 
-1. Instale um navegador moderno (Chrome, Firefox, Edge ou equivalente).
+1. Instale um navegador moderno (Chrome, Firefox ou Edge).
 2. Clone o repositório:
    ```bash
-   git clone https://github.com/SEU-USUARIO/taskflow.git
-   cd taskflow
+   git clone https://github.com/Rosanarci-Dev/task_flow.git
+   cd task_flow
    ```
-3. Abra `src/index.html` no navegador.
+3. Abra o arquivo `src/index.html` no navegador.
 
-Opcionalmente, use a extensão **Live Server** do Visual Studio Code para servir a aplicação localmente.
+Opcionalmente, utilize a extensão Live Server no Visual Studio Code.
 
 ## Documentação
 
-- [Termo de Abertura (Project Charter)](docs/project-charter.md)
+- [Termo de Abertura — Project Charter](docs/project-charter.md)
 - [Requisitos Funcionais e Não Funcionais](docs/requisitos.md)
 - [Casos de Uso](docs/casos-de-uso.md)
 - [Histórias de Usuário](docs/user-stories.md)
-- [Arquitetura e modelo de dados](docs/arquitetura.md)
-- [Backlog inicial — 15 Issues](docs/backlog-issues.md)
+- [Arquitetura e Modelo de Dados](docs/arquitetura.md)
+- [Backlog de 15 Issues](docs/backlog-issues.md)
 - [Workflow de Git](docs/git-workflow.md)
 
-## Git Flow adotado
+## Git Flow
 
 ```text
-main       ─────────●────────────────●──────── versão estável
-                    \              /
-develop    ──────────●──────●───────●────────── integração
-                      \   / \     /
-feature/*               ●     ●───
+main       ───────●────────────────●────── versões estáveis
+                   \              /
+develop    ─────────●──────●──────●────── integração
+                     \    /
+feature/*               ●────────────── trabalho por Issue
+fix/*                   ●────────────── correções
 ```
 
 | Branch | Finalidade |
 |---|---|
-| `main` | Versões estáveis e entregáveis |
-| `develop` | Integração das funcionalidades |
-| `feature/issue-N-*` | Desenvolvimento de uma Issue |
-| `fix/issue-N-*` | Correções relacionadas a uma Issue |
+| `main` | Versões estáveis |
+| `develop` | Integração do trabalho em andamento |
+| `feature/issue-N-descricao` | Nova funcionalidade ligada a Issue |
+| `fix/issue-N-descricao` | Correção ligada a Issue |
 
-### Padrão de commits
+### Conventional Commits
 
-Adota-se Conventional Commits: `tipo(escopo): descrição`.
+Formato: `tipo(escopo): descrição`.
 
 Exemplos:
 ```text
-docs(charter): add project vision and scope
-feat(tasks): add task creation form
-fix(storage): handle invalid local data
+docs(requirements): add functional requirements
+feat(tasks): implement task creation
+fix(storage): handle malformed saved data
 ```
 
-### Versionamento
+### Versionamento Semântico
 
-O projeto segue SemVer (`MAJOR.MINOR.PATCH`). A versão inicial documentada é `0.1.0`. Tags anotadas devem marcar entregas estáveis:
-```bash
-git tag -a v0.1.0 -m "First functional baseline"
-git push origin v0.1.0
-```
+O projeto segue SemVer: `MAJOR.MINOR.PATCH`.
+- **MAJOR:** alteração incompatível.
+- **MINOR:** funcionalidade compatível.
+- **PATCH:** correção compatível.
+
+Tags anotadas devem marcar marcos estáveis. A versão inicial planejada é `v0.1.0`.
 
 ## Gestão de Issues
 
-O backlog inicial contém 15 Issues com critérios de aceite em [`docs/backlog-issues.md`](docs/backlog-issues.md). Os textos prontos para criação estão em [`.github/issue-bodies/`](.github/issue-bodies/).
-
-Depois de criar o repositório remoto, execute `scripts/create-issues.ps1` no PowerShell, com o GitHub CLI (`gh`) instalado e autenticado, para cadastrar as 15 Issues e labels automaticamente.
+O backlog inicial possui 15 Issues com objetivos e critérios de aceite. Consulte a aba [GitHub Issues](https://github.com/Rosanarci-Dev/task_flow/issues) e o [backlog documentado](docs/backlog-issues.md).
 
 ## Licença
 
-Distribuído sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE).
+Este projeto é distribuído sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE).
