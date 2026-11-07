@@ -1,0 +1,17 @@
+# Sistema e editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*.log
+tmp/
+temp/
+dist/
+build/
+coverage/
+node_modules/
+.env
+.env.*
+!.env.example

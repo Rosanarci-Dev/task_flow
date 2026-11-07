@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TaskFlow — organize suas tarefas com simplicidade.">
+  <title>TaskFlow | Gerenciador de Tarefas</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="TaskFlow início"><span class="brand-mark">✓</span> TaskFlow</a>
+      <span class="topbar-note">Organize o que importa.</span>
+    </header>
+    <section class="hero">
+      <p class="eyebrow">SEU ESPAÇO DE PRODUTIVIDADE</p>
+      <h1>Um passo de cada vez.</h1>
+      <p class="hero-copy">Tire as ideias da cabeça e transforme-as em progresso.</p>
+    </section>
+    <section class="summary" aria-label="Resumo das tarefas">
+      <article class="summary-card"><span>Total</span><strong id="total-count">0</strong></article>
+      <article class="summary-card"><span>Pendentes</span><strong id="pending-count">0</strong></article>
+      <article class="summary-card"><span>Concluídas</span><strong id="completed-count">0</strong></article>
+    </section>
+    <section class="panel form-panel">
+      <div class="section-heading"><div><p class="eyebrow">NOVA ATIVIDADE</p><h2>Adicionar tarefa</h2></div></div>
+      <form id="task-form">
+        <label for="task-title">Título <span aria-hidden="true">*</span></label>
+        <input id="task-title" name="title" maxlength="80" placeholder="Ex.: Finalizar atividade de engenharia" required>
+        <label for="task-description">Descrição <span class="muted">(opcional)</span></label>
+        <textarea id="task-description" name="description" rows="2" maxlength="240" placeholder="Adicione detalhes para não esquecer..."></textarea>
+        <div class="form-bottom">
+          <div class="priority-field"><label for="task-priority">Prioridade</label>
+            <select id="task-priority" name="priority">
+              <option value="baixa">Baixa</option><option value="media" selected>Média</option><option value="alta">Alta</option>
+            </select>
+          </div>
+          <button class="primary-button" type="submit">＋ Adicionar tarefa</button>
+        </div>
+        <p id="form-feedback" class="feedback" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+    <section class="task-section">
+      <div class="section-heading list-heading">
+        <div><p class="eyebrow">ACOMPANHAMENTO</p><h2>Suas tarefas</h2></div>
+        <div class="filters" role="group" aria-label="Filtrar tarefas">
+          <button class="filter-button active" data-filter="todas" type="button">Todas</button>
+          <button class="filter-button" data-filter="pendentes" type="button">Pendentes</button>
+          <button class="filter-button" data-filter="concluidas" type="button">Concluídas</button>
+        </div>
+      </div>
+      <div id="task-list" class="task-list" aria-live="polite"></div>
+      <p id="empty-state" class="empty-state">Nenhuma tarefa por aqui. Que tal adicionar a primeira?</p>
+    </section>
+    <footer><span>TaskFlow</span> · Projeto acadêmico · Seus dados ficam neste navegador.</footer>
+  </main>
+</body>
+</html>
